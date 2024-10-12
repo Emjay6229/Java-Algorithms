@@ -1,26 +1,21 @@
 package com.algorithms;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/* Each args member has a divisors. We want to compute a set of divisors for args member.
+ * Store each divisor set in a key-value (to allow easy retrieval)
+ * Retrieve the sets and its intersection.
+ * The intersection of the sets is the Greatest Common Divisor.
+ */
 public class GreatestCommonDivisor {
     private static final Logger logger = Logger.getLogger(GreatestCommonDivisor.class.toString());
     private static final Level info = Level.INFO;
 
-    // main method
     public static void main(String[] args) {
         logger.log(info, "Attempting to compute greatest common divisor of " + Arrays.toString(args));
 
-        /* each args member has a set of divisors.
-         * We want to return `args.length` number of sets and find for a common number in all set.
-         */
         if (args.length < 2) {
             logger.log(info, "Please provide at least two integers.");
             return;
@@ -35,7 +30,6 @@ public class GreatestCommonDivisor {
                 logger.log(Level.SEVERE, "Invalid input format " + e.getMessage());
                 return;
             }
-
         }
 
         logger.log(info, "Divisor Map: " + divisorMap);
@@ -43,8 +37,7 @@ public class GreatestCommonDivisor {
         // find the common number in all sets using set intersection
         Optional<Set<Integer>> commonDivisorsOptional = divisorMap.values()
             .stream()
-            .reduce(
-                (s1, s2) -> {
+            .reduce((s1, s2) -> {
                     s1.retainAll(s2);
                     return s1;
                 });
