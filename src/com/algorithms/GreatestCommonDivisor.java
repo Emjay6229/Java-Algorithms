@@ -4,10 +4,10 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/* Each args member has a divisors. We want to compute a set of divisors for args member.
+/* Each args member has a divisors. We want to compute a set of divisors for each args member.
  * Store each divisor set in a key-value (to allow easy retrieval)
- * Retrieve the sets and its intersection.
- * The intersection of the sets is the Greatest Common Divisor.
+ * Retrieve the sets and find its intersection.
+ * Which gives us the Greatest Common Divisor.
  */
 public class GreatestCommonDivisor {
     private static final Logger logger = Logger.getLogger(GreatestCommonDivisor.class.toString());
