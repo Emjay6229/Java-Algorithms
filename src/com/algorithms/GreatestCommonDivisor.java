@@ -29,10 +29,10 @@ public class GreatestCommonDivisor {
         Map<String, Set<Integer>> divisorMap = new HashMap<>();
 
         for (String arg : args) {
-            try{
+            try {
                 divisorMap.put(arg, computeDivisors(Integer.parseInt(arg)));
-            } catch(NumberFormatException e) {
-                logger.log(Level.SEVERE, e.getMessage());
+            } catch (NumberFormatException e) {
+                logger.log(Level.SEVERE, "Invalid input format " + e.getMessage());
                 return;
             }
 
